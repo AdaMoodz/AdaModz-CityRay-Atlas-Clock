@@ -11,33 +11,41 @@ Native Android 11 clock studio for Geely head units.
 - No Internet permission
 - No advertising, analytics, Firebase or Google services
 
-## Included faces
+## Included artwork
 
-1. CityRay Horizon
-2. Atlas Grand
-3. Minimal Night
-4. GTS4 Business
-5. Concentric Drive
-6. Simple Chronograph
-7. Oyster Black
-8. My Watch Face
+- 19 high-resolution stock watch faces with face-specific image hands and calibrated pivots.
+- 13 transparent Time Frames for decorating the CityRay system clock or an AdaModz face.
+- Watch Face and Time Frame are independent layers: either one or both can be enabled.
+- Each layer keeps its own X/Y position, width, height, and size preset.
+- Each layer has its own background transparency setting.
+- Imported face support with a dedicated delete action.
 
 ## Floating widget
 
-- Full-screen clock: open the app and tap **Hide controls**.
 - OneOS floating clock: tap **Show floating**, drag/resize, then tap **LOCK**.
 - Exact repositioning: reopen the app and tap **Move / resize**.
 - Boot persistence: enable **Start on boot** after granting overlay permission.
-- Rounded MusicWidget-style edges in every state.
+- A fully transparent overlay window: no black backdrop, tint, rounded window, or shadow outside the selected watch-face artwork.
 - Tap a locked clock to fade it to 10% and make it touch-through for 10 seconds.
-- **Background: clear** removes dark face backgrounds; **Background: black** restores them.
+- Both layers appear on the home screen. Only Watch Face may appear inside selected apps;
+  Time Frame is always home-screen only.
+
+## Clock Studio UI
+
+- Responsive NeonBlade-inspired control deck with separate cyan Watch Face and magenta Time Frame cards.
+- Bottom-anchored translucent control dock keeps the live overlay visible above the settings.
+- Native Android neon toggles with explicit ON/OFF labels and large in-car touch targets.
+- Static corner-cut styling with no decorative flicker, pulse, scan, or particle animation.
+
+The stock CityRay/OneOS clock is owned by the launcher or System UI. A normal overlay app cannot
+reliably hide it; doing so needs a launcher setting, a vendor-signed system app, or root access.
+AdaModz deliberately does not present a misleading switch that cannot control it.
 
 The tested G426J1 OneOS launcher does not expose standard AppWidget or live-wallpaper pickers. Version 1.3.0 therefore focuses on the same overlay-window model as MusicWidget.
 
-The same selected face and seconds preference are shared by all modes.
-
-The app does not request Internet, location, microphone, accessibility,
-notification-listener, or package-scanning access.
+The app does not request Internet, location, microphone, or notification-listener access.
+Its optional accessibility service reads only foreground app/window changes so the overlay can
+stay on the launcher and disappear from applications that were not selected.
 
 ## Custom face import
 
@@ -56,7 +64,7 @@ The supplied `UIHH` `.bin` generation is detected but is not treated as a normal
 ## HU test
 
 ```text
-adb install -r AdaModz_AnalogClock_1.3.0_Widget.apk
+adb install -r AdaModz-CityRay-Clock-v1.10.2-release.apk
 adb shell am start -n com.Gadamodz.AnalogClock/com.adamodz.cityrayclock.MainActivity
 ```
 
